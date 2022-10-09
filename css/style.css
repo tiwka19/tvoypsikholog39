@@ -868,6 +868,11 @@ h6 {
   max-width: 100%;
 }
 
+.education__slide-zoom {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
 .contacts {
   padding: 3.125rem 0;
 }

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221009124026">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221009141737">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +15,6 @@
 
 <body>
 	<div class="wrapper">
-		<script src="https://api-maps.yandex.ru/2.1/?apikey=e3d6aae8-6b2d-433a-9223-398c13e48fed&lang=ru_RU&_v=20221009124026">
-		</script>
 		<header class="header">
 			<div class="header__container">
 				<div class="header__logo logo">
@@ -173,22 +171,22 @@
 					<div class="reviews__slider swiper">
 						<div class="reviews__wrapper swiper-wrapper">
 							<div class="reviews__slide swiper-slide">
-								<picture><source srcset="img/reviews/review-1.webp" type="image/webp"><img src="img/reviews/review-1.png" alt="image"></picture>
+								<picture><source srcset="img/reviews/review-1.webp" type="image/webp"><img src="img/reviews/review-1.png" class="zoom" alt="image"></picture>
 							</div>
 							<div class="reviews__slide swiper-slide">
-								<picture><source srcset="img/reviews/review-2.webp" type="image/webp"><img src="img/reviews/review-2.png" alt="image"></picture>
+								<picture><source srcset="img/reviews/review-2.webp" type="image/webp"><img src="img/reviews/review-2.png" class="zoom" alt="image"></picture>
 							</div>
 							<div class="reviews__slide swiper-slide">
-								<picture><source srcset="img/reviews/review-3.webp" type="image/webp"><img src="img/reviews/review-3.png" alt="image"></picture>
+								<picture><source srcset="img/reviews/review-3.webp" type="image/webp"><img src="img/reviews/review-3.png" class="zoom" alt="image"></picture>
 							</div>
 							<div class="reviews__slide swiper-slide">
-								<picture><source srcset="img/reviews/review-4.webp" type="image/webp"><img src="img/reviews/review-4.png" alt="image"></picture>
+								<picture><source srcset="img/reviews/review-4.webp" type="image/webp"><img src="img/reviews/review-4.png" class="zoom" alt="image"></picture>
 							</div>
 							<div class="reviews__slide swiper-slide">
-								<picture><source srcset="img/reviews/review-5.webp" type="image/webp"><img src="img/reviews/review-5.png" alt="image"></picture>
+								<picture><source srcset="img/reviews/review-5.webp" type="image/webp"><img src="img/reviews/review-5.png" class="zoom" alt="image"></picture>
 							</div>
 							<div class="reviews__slide swiper-slide">
-								<picture><source srcset="img/reviews/review-6.webp" type="image/webp"><img src="img/reviews/review-6.png" alt="image"></picture>
+								<picture><source srcset="img/reviews/review-6.webp" type="image/webp"><img src="img/reviews/review-6.png" class="zoom" alt="image"></picture>
 							</div>
 						</div>
 						<div class="reviews__buttons">
@@ -214,16 +212,24 @@
 					<div class="education__slider swiper">
 						<div class="education__wrapper swiper-wrapper">
 							<div class="education__slide swiper-slide">
-								<picture><source srcset="img/education//education-1.webp" type="image/webp"><img src="img/education//education-1.png" alt="image"></picture>
+								<div class="education__slide-zoom swiper-zoom-container">
+									<picture><source srcset="img/education//education-1.webp" type="image/webp"><img src="img/education//education-1.png" class="zoom" alt="image"></picture>
+								</div>
 							</div>
 							<div class="education__slide swiper-slide">
-								<picture><source srcset="img/education//education-2.webp" type="image/webp"><img src="img/education//education-2.png" alt="image"></picture>
+								<div class="education__slide-zoom swiper-zoom-container">
+									<picture><source srcset="img/education//education-2.webp" type="image/webp"><img src="img/education//education-2.png" class="zoom" alt="image"></picture>
+								</div>
 							</div>
 							<div class="education__slide swiper-slide">
-								<picture><source srcset="img/education//education-3.webp" type="image/webp"><img src="img/education//education-3.png" alt="image"></picture>
+								<div class="education__slide-zoom swiper-zoom-container">
+									<picture><source srcset="img/education//education-3.webp" type="image/webp"><img src="img/education//education-3.png" class="zoom" alt="image"></picture>
+								</div>
 							</div>
 							<div class="education__slide swiper-slide">
-								<picture><source srcset="img/education//education-4.webp" type="image/webp"><img src="img/education//education-4.png" alt="image"></picture>
+								<div class="education__slide-zoom swiper-zoom-container">
+									<picture><source srcset="img/education//education-4.webp" type="image/webp"><img src="img/education//education-4.png" class="zoom" alt="image"></picture>
+								</div>
 							</div>
 						</div>
 						<div class="education__buttons">
@@ -348,9 +354,51 @@
 		</footer>
 
 	</div>
+	<script>
+		setTimeout(function() {
+			var elem = document.createElement('script');
+			elem.type = 'text/javascript';
+			elem.src = '//api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU&onload=getYaMap';
+			document.getElementsByTagName('body')[0].appendChild(elem);
+		}, 1000);
 
-	<script src="js/app.min.js?_v=20221009124026"></script>
+		function getYaMap() {
+			var myMap = new ymaps.Map("map", {
+				controls: [],
+				center: [54.721650, 20.496563],
+				// Уровень масштабирования. Допустимые значения:
+				// от 0 (весь мир) до 19.
+				zoom: 17
+			});
 
+
+			let myPlacemark = new ymaps.Placemark([54.721650, 20.496563], {
+				balloonContentHeader: 'Генделя, дом 3А',
+				balloonContentBody: '2 этаж, кабинет 205',
+				balloonContentFooter: '+ 7(911)-491-88-54',
+				hasBalloon: true,
+				hideIconOnBalloonOpen: true,
+			}, {
+
+				// Необходимо указать данный тип макета.
+				iconLayout: 'default#imageWithContent',
+				// Своё изображение иконки метки.
+				iconImageHref: 'img/icons/map.svg',
+				// Размеры метки.
+				iconImageSize: [40, 40],
+				// Смещение левого верхнего угла иконки относительно
+				// её "ножки" (точки привязки).
+				iconImageOffset: [-20, -20],
+				// Смещение слоя с содержимым относительно слоя с картинкой.
+				iconContentOffset: [0, 0],
+			});
+			myMap.geoObjects.add(myPlacemark);
+			myMap.behaviors.disable('scrollZoom');
+			// myMap.behaviors.disable('drag');
+		}
+	</script>
+
+	<script src="js/app.min.js?_v=20221009141737"></script>
 </body>
 
 </html>
