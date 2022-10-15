@@ -466,9 +466,9 @@ h6 {
   border-radius: 1.875rem 0.625rem;
   font-size: 1.25rem;
   font-weight: 500;
-  -webkit-transition: background-color 0.3s ease 0s;
-  -o-transition: background-color 0.3s ease 0s;
-  transition: background-color 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .hero__image {
@@ -2079,6 +2079,7 @@ h6 {
   .header__button:hover {
     background-color: #b5eac8;
     border: 0.125rem solid transparent;
+    border-radius: 1.875rem;
   }
 
   .menu__item:hover::after {
@@ -2105,6 +2106,7 @@ h6 {
   }
 
   .hero__button:hover {
+    border-radius: 1.875rem;
     background-color: #8ad6a6;
   }
 
